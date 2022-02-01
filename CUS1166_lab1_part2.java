@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class lab1p2 {
+public class CUS1166_lab1_part2 {
     public static void main(String[] args){
         // surface area of cuboid
         int length = 10;
