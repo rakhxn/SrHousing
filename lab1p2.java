@@ -5,7 +5,7 @@ public class lab1p2 {
         // surface area of cuboid
         int length = 10;
         int width = 10;
-        int height = 10;
+        int height = 1;
         int cubearea = (2*length*width) + (2*length*height) + (2*height*width);
         System.out.println("Dimensions of cuboid:");
         System.out.println("Length: " + length);
