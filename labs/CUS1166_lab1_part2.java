@@ -3,6 +3,7 @@ import java.util.*;
 
 public class CUS1166_lab1_part2 {
     public static void main(String[] args) {
+
         // surface area of cuboid
         int length = 10;
         int width = 10;
