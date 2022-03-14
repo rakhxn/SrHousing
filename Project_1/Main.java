@@ -1,8 +1,6 @@
 package Project_1;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -44,5 +42,7 @@ public class Main extends Application{
         window.setScene(scene1);
         window.show();
     }
+
+    //testing to see if this pops up on windows
 
 }
