@@ -1,14 +1,13 @@
 package Project_1;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -22,27 +21,43 @@ public class Main extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {
+
+        //actual window surrounding the scene
         window = stage;
         window.setTitle("SR. Housing");
 
-        HBox topMenu = new HBox();
-        Button file = new Button("File");
-        Button edit = new Button("Edit");
-        Button view = new Button("View");
-        topMenu.getChildren().addAll(file,edit,view);
+        GridPane grid = new GridPane();
+        grid.setPadding(new Insets(10,10,10,10));
+        grid.setVgap(8);
+        grid.setHgap(10);
 
-        VBox leftMenu = new VBox();
-        Button file1 = new Button("File1");
-        Button edit1 = new Button("Edit1");
-        Button view1 = new Button("View1");
-        leftMenu.getChildren().addAll(file1,edit1,view1);
+        //Name label
+        Label name = new Label("Username: ");
+        GridPane.setConstraints(name,0,0);
 
-        BorderPane borderPane = new BorderPane();
-        borderPane.setTop(topMenu);
-        borderPane.setLeft(leftMenu);
+        //Name input
+        TextField nameInput = new TextField();
+        nameInput.setPromptText("username"); // grayed out text prompting users to enter their username
+        GridPane.setConstraints(nameInput,1,0);
 
-        Scene scene = new Scene(borderPane,300,250);
+        //Password label
+        Label password = new Label("Password: ");
+        GridPane.setConstraints(password,0,1);
+
+        //Password input
+        TextField passInput = new TextField();
+        passInput.setPromptText("password");
+        GridPane.setConstraints(passInput,1,1);
+
+        Button login = new Button("Log In");
+        GridPane.setConstraints(login,1,2);
+
+        grid.getChildren().addAll(name,nameInput,password,passInput,login);
+
+        Scene scene = new Scene(grid,300,200);
+        //casts the window with the scene in it
         window.setScene(scene);
         window.show();
+
     }
 }
