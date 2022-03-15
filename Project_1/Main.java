@@ -3,9 +3,7 @@ package Project_1;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Main extends Application{
@@ -24,7 +22,7 @@ public class Main extends Application{
 
         button = new Button("Click me");
         button.setOnAction(e -> {
-            boolean result = ConfirmBox.display("Sr. Housing", "Are you sure you wanna suck me off");
+            boolean result = ConfirmBox.display("Sr. Housing", "fasjifsfaosfa");
             System.out.println(result);
         });
 
