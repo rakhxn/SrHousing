@@ -5,6 +5,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
@@ -13,7 +15,6 @@ import javafx.stage.Stage;
 public class Main extends Application{
 
     Stage window;
-    Button button;
 
     public static void main(String[] args) {
         launch(args);
@@ -24,24 +25,24 @@ public class Main extends Application{
         window = stage;
         window.setTitle("SR. Housing");
 
-        button = new Button("Click me");
-        button.setOnAction(e -> {
-            boolean result = ConfirmBox.display("Sr. Housing", "eirutghiuaeriuh");
-            if (result == true){
-                Confirmed.display("Confirmed!", "Updated!");
-                System.out.println("True!");
+        HBox topMenu = new HBox();
+        Button file = new Button("File");
+        Button edit = new Button("Edit");
+        Button view = new Button("View");
+        topMenu.getChildren().addAll(file,edit,view);
 
-            }
-            if (result == false){
-                System.out.println("Fuck no, gtfo!");
-            }
-        });
+        VBox leftMenu = new VBox();
+        Button file1 = new Button("File1");
+        Button edit1 = new Button("Edit1");
+        Button view1 = new Button("View1");
+        leftMenu.getChildren().addAll(file1,edit1,view1);
 
-        StackPane layout = new StackPane();
-        layout.getChildren().add(button);
-        Scene scene = new Scene(layout,300,250);
+        BorderPane borderPane = new BorderPane();
+        borderPane.setTop(topMenu);
+        borderPane.setLeft(leftMenu);
+
+        Scene scene = new Scene(borderPane,300,250);
         window.setScene(scene);
         window.show();
     }
-
 }
