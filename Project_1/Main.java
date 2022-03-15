@@ -23,7 +23,10 @@ public class Main extends Application{
         window.setTitle("SR. Housing");
 
         button = new Button("Click me");
-        button.setOnAction(e -> AlertBox.displayError());
+        button.setOnAction(e -> {
+            boolean result = ConfirmBox.display("Sr. Housing", "Are you sure you wanna suck me off");
+            System.out.println(result);
+        });
 
         StackPane layout = new StackPane();
         layout.getChildren().add(button);
