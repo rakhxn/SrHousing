@@ -11,11 +11,16 @@ import javafx.scene.layout.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
 public class Main extends Application{
 
     Stage window;
 
     public static void main(String[] args) {
+
         launch(args);
     }
 
@@ -50,6 +55,7 @@ public class Main extends Application{
         GridPane.setConstraints(passInput,1,1);
 
         Button login = new Button("Log In");
+        login.setOnAction(e -> isString(nameInput,nameInput.getText()));
         GridPane.setConstraints(login,1,2);
 
         grid.getChildren().addAll(name,nameInput,password,passInput,login);
@@ -60,4 +66,24 @@ public class Main extends Application{
         window.show();
 
     }
+
+    private boolean isString(TextField input, String message){
+        // false data
+        // login for admin
+        String uname = "admin";
+        String upass = "password";
+        //
+
+
+        if(uname.equals(input.getText())){
+            System.out.println("User exists!");
+            return true;
+        }
+        else {
+            System.out.println("User doesn't exist!");
+            return false;
+        }
+    }
+
+
 }
