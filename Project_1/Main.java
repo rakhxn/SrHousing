@@ -11,9 +11,8 @@ import javafx.scene.layout.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class Main extends Application{
 
@@ -55,7 +54,13 @@ public class Main extends Application{
         GridPane.setConstraints(passInput,1,1);
 
         Button login = new Button("Log In");
-        login.setOnAction(e -> isString(nameInput,nameInput.getText()));
+        login.setOnAction(e -> {
+            try {
+                isString(nameInput,nameInput.getText());
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
         GridPane.setConstraints(login,1,2);
 
         grid.getChildren().addAll(name,nameInput,password,passInput,login);
@@ -67,23 +72,17 @@ public class Main extends Application{
 
     }
 
-    private boolean isString(TextField input, String message){
+    public boolean isString(TextField input, String message) throws Exception{
+
         // false data
         // login for admin
-        String uname = "admin";
+        String uname = input.getText();
         String upass = "password";
         //
+        return testconnection.userExists(testconnection.getConnection(),uname);
 
-
-        if(uname.equals(input.getText())){
-            System.out.println("User exists!");
-            return true;
-        }
-        else {
-            System.out.println("User doesn't exist!");
-            return false;
-        }
     }
+
 
 
 }
