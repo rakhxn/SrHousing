@@ -22,8 +22,8 @@ public class MainWindow {
 
 
         //Login button
-        Button login = new Button("Log Out");
-        login.setOnAction(e -> {
+        Button logout = new Button("Log Out");
+        logout.setOnAction(e -> {
             try {
                 Login.display(stage);
             } catch (Exception ex) {
@@ -32,8 +32,20 @@ public class MainWindow {
         });
 
         //sets the layout together
-        GridPane.setConstraints(login,1,2);
-        grid.getChildren().addAll(login);
+        GridPane.setConstraints(logout,1,2);
+
+        Button addEmployee = new Button("Add Employee");
+        addEmployee.setOnAction(e -> {
+            try {
+                Employee.display(stage);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
+        //sets the layout together
+        GridPane.setConstraints(addEmployee,0,0);
+
+        grid.getChildren().addAll(addEmployee,logout);
 
         //casts the window with the scene in it
         Scene scene = new Scene(grid,300,200);
