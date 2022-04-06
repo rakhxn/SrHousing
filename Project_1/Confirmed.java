@@ -1,7 +1,5 @@
 package Project_1;
-
 import javafx.scene.Scene;
-import javafx.stage.*;
 import javafx.stage.*;
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
@@ -11,7 +9,7 @@ public class Confirmed {
 
     static boolean answer;
 
-    public static boolean display(String title, String message){
+    public static void display(String title, String message){
         Stage window = new Stage();
 
         window.initModality(Modality.APPLICATION_MODAL);
@@ -37,9 +35,6 @@ public class Confirmed {
         Scene scene = new Scene(layout);
         window.setScene(scene);
         window.showAndWait();
-
-        return answer;
-
 
     }
 }
