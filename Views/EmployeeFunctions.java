@@ -3,11 +3,11 @@ package Views;
 import Project_1.Confirmed;
 import Project_1.Connector;
 import Project_1.Controller;
-import Project_1.View;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -19,9 +19,7 @@ public class EmployeeFunctions {
     public static void addEmployee(Stage stage){
 
         //actual window surrounding the scene
-        Stage window;
-        window = stage;
-        window.setTitle("SR. Housing");
+        stage.setTitle("SR. Housing");
 
         GridPane grid = new GridPane();
         grid.setPadding(new Insets(10,10,10,10));
@@ -42,7 +40,7 @@ public class EmployeeFunctions {
         GridPane.setConstraints(password,0,1);
 
         //Password input
-        TextField passInput = new TextField();
+        PasswordField passInput = new PasswordField();
         passInput.setPromptText("password");
         GridPane.setConstraints(passInput,1,1);
 
@@ -94,17 +92,13 @@ public class EmployeeFunctions {
 
         //casts the window with the scene in it
         Scene scene = new Scene(grid,300,200);
-        window.setScene(scene);
-        window.show();
+        stage.setScene(scene);
+        stage.show();
 
     }
 
     public static void removeEmployee(Stage stage){
-
-        //actual window surrounding the scene
-        Stage window;
-        window = stage;
-        window.setTitle("SR. Housing");
+        stage.setTitle("SR. Housing");
 
         GridPane grid = new GridPane();
         grid.setPadding(new Insets(10,10,10,10));
@@ -147,17 +141,15 @@ public class EmployeeFunctions {
 
         //casts the window with the scene in it
         Scene scene = new Scene(grid,300,200);
-        window.setScene(scene);
-        window.show();
+        stage.setScene(scene);
+        stage.show();
 
     }
 
     public static void changePassword(Stage stage){
 
         //actual window surrounding the scene
-        Stage window;
-        window = stage;
-        window.setTitle("SR. Housing");
+        stage.setTitle("SR. Housing");
 
         GridPane grid = new GridPane();
         grid.setPadding(new Insets(10,10,10,10));
@@ -217,8 +209,8 @@ public class EmployeeFunctions {
 
         //casts the window with the scene in it
         Scene scene = new Scene(grid,300,200);
-        window.setScene(scene);
-        window.show();
+        stage.setScene(scene);
+        stage.show();
 
     }
 }

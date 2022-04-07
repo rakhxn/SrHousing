@@ -1,6 +1,5 @@
 package Views;
 
-import Project_1.View;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -11,9 +10,8 @@ public class Employee {
     public static void displayMain(Stage stage){
 
         // DEFINES THE SIZE OF BOX
-        Stage window;
-        window = stage;
-        window.setTitle("SR. Housing");
+
+        stage.setTitle("SR. Housing");
 
         GridPane grid = new GridPane();
         grid.setPadding(new Insets(10,10,10,10));
@@ -73,7 +71,7 @@ public class Employee {
 
         //casts the window with the scene in it
         Scene scene = new Scene(grid,300,200);
-        window.setScene(scene);
-        window.show();
+        stage.setScene(scene);
+        stage.show();
     }
 }

@@ -1,10 +1,12 @@
-package Project_1;
+package Views;
 
-import Views.Employee;
+import Project_1.Connector;
+import Project_1.Controller;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -14,9 +16,7 @@ import java.util.Objects;
 public class View {
     public static void displayLogin(Stage stage){
         //actual window surrounding the scene
-        Stage window;
-        window = stage;
-        window.setTitle("SR. Housing");
+        stage.setTitle("SR. Housing");
 
         GridPane grid = new GridPane();
         grid.setPadding(new Insets(10,10,10,10));
@@ -37,7 +37,7 @@ public class View {
         GridPane.setConstraints(password,0,1);
 
         //Password input
-        TextField passInput = new TextField();
+        PasswordField passInput = new PasswordField();
         passInput.setPromptText("password");
         GridPane.setConstraints(passInput,1,1);
 
@@ -57,16 +57,14 @@ public class View {
 
         //casts the window with the scene in it
         Scene scene = new Scene(grid,300,200);
-        window.setScene(scene);
-        window.show();
+        stage.setScene(scene);
+        stage.show();
 
 
     }
 
     public static void displayMain(Stage stage){
-        Stage window;
-        window = stage;
-        window.setTitle("SR. Housing");
+        stage.setTitle("SR. Housing");
 
         GridPane grid = new GridPane();
         grid.setPadding(new Insets(10,10,10,10));
@@ -100,7 +98,7 @@ public class View {
         Button manageResidents = new Button("Manage Resident");
         manageResidents.setOnAction(e -> {
             try {
-                Employee.displayMain(stage);
+                Residents.displayMain(stage);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -157,8 +155,8 @@ public class View {
 
         //casts the window with the scene in it
         Scene scene = new Scene(grid,300,200);
-        window.setScene(scene);
-        window.show();
+        stage.setScene(scene);
+        stage.show();
 
     }
 
