@@ -1,6 +1,6 @@
 package Project_1;
-import Views.Residents;
-import Views.View;
+import Project_1.Views.RequestsFunctions;
+import Project_1.Views.View;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

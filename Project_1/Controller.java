@@ -1,17 +1,10 @@
 package Project_1;
 
-import Views.Employee;
-import Views.ResidentsFunctions;
-import Views.View;
-import javafx.geometry.Insets;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
+import Project_1.Views.Employee;
+import Project_1.Views.View;
 import javafx.stage.Stage;
 
 import java.sql.*;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Controller {
 

@@ -1,4 +1,4 @@
-package Views;
+package Project_1.Views;
 
 import javafx.geometry.Insets;
 import javafx.scene.Scene;

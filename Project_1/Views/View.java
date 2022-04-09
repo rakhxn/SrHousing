@@ -1,4 +1,4 @@
-package Views;
+package Project_1.Views;
 
 import Project_1.Connector;
 import Project_1.Controller;
@@ -120,7 +120,7 @@ public class View {
         Button requests = new Button("Requests");
         requests.setOnAction(e -> {
             try {
-                Employee.displayMain(stage);
+                Requests.displayMain(stage);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -129,7 +129,7 @@ public class View {
         GridPane.setConstraints(requests,1,1);
 
         Button missedMeal = new Button("Missed Meal");
-        requests.setOnAction(e -> {
+        missedMeal.setOnAction(e -> {
             try {
                 Employee.displayMain(stage);
             } catch (Exception ex) {
@@ -140,7 +140,7 @@ public class View {
         GridPane.setConstraints(missedMeal,0,2);
 
         Button hospitalList = new Button("Hospital List");
-        requests.setOnAction(e -> {
+        hospitalList.setOnAction(e -> {
             try {
                 Employee.displayMain(stage);
             } catch (Exception ex) {

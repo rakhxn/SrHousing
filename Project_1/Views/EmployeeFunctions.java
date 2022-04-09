@@ -1,4 +1,4 @@
-package Views;
+package Project_1.Views;
 
 import Project_1.Confirmed;
 import Project_1.Connector;
