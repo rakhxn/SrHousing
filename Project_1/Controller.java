@@ -1,7 +1,7 @@
 package Project_1;
 
+import Project_1.Views.ConfirmedButton;
 import Project_1.Views.Employee;
-import Project_1.Views.View;
 import javafx.stage.Stage;
 
 import java.sql.*;
@@ -30,14 +30,14 @@ public class Controller {
         }
 
         if(userResult == null || passResult == null){
-            Confirmed.display("Error!", "Try again!");
+            ConfirmedButton.display("Error!", "Try again!");
         }
         else if(userResult.equals(name.toLowerCase()) && passResult.equals(password)){
             exists = true;
             View.displayMain(stage);
         }
         else if(userResult.equals(name.toLowerCase()) && !passResult.equals(password)){
-            Confirmed.display("Error!", "Incorrect Password, try again!");
+            ConfirmedButton.display("Error!", "Incorrect Password, try again!");
         }
         return exists;
     }
@@ -89,12 +89,12 @@ public class Controller {
             userResult = rs.getString("firstname");
         }
         if(userResult == null || !userResult.equals(name)){
-            Confirmed.display("Error!", "Try again!");
+            ConfirmedButton.display("Error!", "Try again!");
         }
         else if(userResult.equals(name.toLowerCase())){
             PreparedStatement posted = conn.prepareStatement("DELETE FROM employees WHERE firstname = '" + name +"';");
             posted.executeUpdate();
-            Confirmed.display("SR. Housing", "Removed!");        }
+            ConfirmedButton.display("SR. Housing", "Removed!");        }
 
     }
 
@@ -109,12 +109,12 @@ public class Controller {
                 userResult = rs.getString("firstname");
             }
             if(userResult == null || !userResult.equals(name)){
-                Confirmed.display("Error!", "Try again!");
+                ConfirmedButton.display("Error!", "Try again!");
             }
             else if(userResult.equals(name.toLowerCase())){
                 PreparedStatement posted = conn.prepareStatement("UPDATE employees SET password = '" + npass +"' WHERE firstname = '" + name +"';");
                 posted.executeUpdate();
-                Confirmed.display("SR. Housing", "Updated!");
+                ConfirmedButton.display("SR. Housing", "Updated!");
                 Employee.displayMain(stage);
             }
         }

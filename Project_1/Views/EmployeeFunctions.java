@@ -1,6 +1,5 @@
 package Project_1.Views;
 
-import Project_1.Confirmed;
 import Project_1.Connector;
 import Project_1.Controller;
 import javafx.geometry.Insets;
@@ -59,7 +58,7 @@ public class EmployeeFunctions {
             try {
                 Controller.addEmployee(stage, Objects.requireNonNull(Connector.getConnection()),usernameInput.getText(),passInput.getText(),deptInput.getText());
                 Controller.setEmployee(stage,Connector.getConnection(),usernameInput.getText());
-                Confirmed.display("SR. Housing", "Updated!");
+                ConfirmedButton.display("SR. Housing", "Updated!");
                 Employee.displayMain(stage);
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -70,7 +69,7 @@ public class EmployeeFunctions {
             try {
                 Controller.addEmployee(stage, Objects.requireNonNull(Connector.getConnection()),usernameInput.getText(),passInput.getText(),deptInput.getText());
                 Controller.setAdmin(stage,Connector.getConnection(),usernameInput.getText());
-                Confirmed.display("SR. Housing", "Updated!");
+                ConfirmedButton.display("SR. Housing", "Updated!");
                 Employee.displayMain(stage);
             } catch (Exception ex) {
                 ex.printStackTrace();

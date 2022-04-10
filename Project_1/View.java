@@ -1,7 +1,6 @@
-package Project_1.Views;
+package Project_1;
 
-import Project_1.Connector;
-import Project_1.Controller;
+import Project_1.Views.*;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -109,7 +108,7 @@ public class View {
         Button quarantineLists = new Button("Quarantine List");
         quarantineLists.setOnAction(e -> {
             try {
-                Employee.displayMain(stage);
+                Quarantine.displayMain(stage);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -131,7 +130,7 @@ public class View {
         Button missedMeal = new Button("Missed Meal");
         missedMeal.setOnAction(e -> {
             try {
-                Employee.displayMain(stage);
+                MissedMeal.displayMain(stage);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -142,7 +141,7 @@ public class View {
         Button hospitalList = new Button("Hospital List");
         hospitalList.setOnAction(e -> {
             try {
-                Employee.displayMain(stage);
+                HospitalList.displayMain(stage);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }

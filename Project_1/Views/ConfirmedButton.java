@@ -1,11 +1,11 @@
-package Project_1;
+package Project_1.Views;
 import javafx.scene.Scene;
 import javafx.stage.*;
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
 import javafx.geometry.*;
 
-public class Confirmed {
+public class ConfirmedButton {
 
     static boolean answer;
 

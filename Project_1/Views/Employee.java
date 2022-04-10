@@ -1,5 +1,6 @@
 package Project_1.Views;
 
+import Project_1.View;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;

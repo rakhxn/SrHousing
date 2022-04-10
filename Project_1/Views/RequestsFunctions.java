@@ -21,36 +21,36 @@ public class RequestsFunctions {
 
         // REQUEST TYPE //
         Label type = new Label("Request Type: ");
-        GridPane.setConstraints(type,0,0);
         ChoiceBox<String> choiceBox = new ChoiceBox<>();
         choiceBox.getItems().add("Nurse");
         choiceBox.getItems().add("Maintenance");
         choiceBox.setValue("Select One");
+        GridPane.setConstraints(type,0,0);
         GridPane.setConstraints(choiceBox,1,0);
 
         // RESIDENT ID //
         Label residentID = new Label("Resident ID: ");
-        GridPane.setConstraints(residentID,0,1);
         TextField residentIDInput = new TextField();
         residentIDInput.setPromptText("resident id");
+        GridPane.setConstraints(residentID,0,1);
         GridPane.setConstraints(residentIDInput,1,1);
 
+        // DESCRIPTION //
         Label descrp = new Label("Description: ");
-        GridPane.setConstraints(descrp,0,2);
         TextArea descrpInput = new TextArea();
         descrpInput.setPrefHeight(100);
         descrpInput.setPrefWidth(200);
+        GridPane.setConstraints(descrp,0,2);
         GridPane.setConstraints(descrpInput,1,2);
 
         Date currentDate = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         String dateOnly = dateFormat.format(currentDate);
-
         Label date = new Label("Date Requested: ");
-        GridPane.setConstraints(date,0,3);
         TextField dateTime = new TextField();
         dateTime.setText(String.valueOf(dateOnly));
         dateTime.setEditable(false);
+        GridPane.setConstraints(date,0,3);
         GridPane.setConstraints(dateTime,1,3);
 
 
@@ -84,20 +84,19 @@ public class RequestsFunctions {
         grid.setHgap(10);
 
         Label requestID = new Label("Request ID:");
-        GridPane.setConstraints(requestID,0,0);
         TextField requestIDInput = new TextField();
         requestIDInput.setPromptText("request id");
+        GridPane.setConstraints(requestID,0,0);
         GridPane.setConstraints(requestIDInput,1,0);
 
         Date currentDate = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         String dateOnly = dateFormat.format(currentDate);
-
         Label date = new Label("Date Completed: ");
-        GridPane.setConstraints(date,0,1);
         TextField dateTime = new TextField();
         dateTime.setText(String.valueOf(dateOnly));
         dateTime.setEditable(false);
+        GridPane.setConstraints(date,0,1);
         GridPane.setConstraints(dateTime,1,1);
 
         Button returnn = new Button("Return");
