@@ -2,6 +2,7 @@ package Project_1.Views;
 
 import Project_1.Connector;
 import Project_1.Controller;
+import Project_1.Encryptor;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -56,7 +57,7 @@ public class EmployeeFunctions {
         Button addEmployee = new Button("Add Employee");
         addEmployee.setOnAction(e -> {
             try {
-                Controller.addEmployee(stage, Objects.requireNonNull(Connector.getConnection()),usernameInput.getText(),passInput.getText(),deptInput.getText());
+                Controller.addEmployee(stage, Objects.requireNonNull(Connector.getConnection()),usernameInput.getText(), Encryptor.encryptString(passInput.getText()),deptInput.getText());
                 Controller.setEmployee(stage,Connector.getConnection(),usernameInput.getText());
                 ConfirmedButton.display("SR. Housing", "Updated!");
                 Employee.displayMain(stage);
@@ -67,7 +68,7 @@ public class EmployeeFunctions {
         Button addAdmin = new Button("Add Admin");
         addAdmin.setOnAction(e -> {
             try {
-                Controller.addEmployee(stage, Objects.requireNonNull(Connector.getConnection()),usernameInput.getText(),passInput.getText(),deptInput.getText());
+                Controller.addEmployee(stage, Objects.requireNonNull(Connector.getConnection()),usernameInput.getText(),Encryptor.encryptString(passInput.getText()),deptInput.getText());
                 Controller.setAdmin(stage,Connector.getConnection(),usernameInput.getText());
                 ConfirmedButton.display("SR. Housing", "Updated!");
                 Employee.displayMain(stage);
@@ -168,7 +169,7 @@ public class EmployeeFunctions {
         GridPane.setConstraints(oldPassword,0,1);
 
         //First name input
-        TextField oldPasswordInput = new TextField();
+        PasswordField oldPasswordInput = new PasswordField();
         oldPasswordInput.setPromptText("Password"); // grayed out text prompting users to enter their first name
         GridPane.setConstraints(oldPasswordInput,1,1);
 
@@ -177,7 +178,7 @@ public class EmployeeFunctions {
         GridPane.setConstraints(newPassword,0,2);
 
         //First name input
-        TextField newPasswordInput = new TextField();
+        PasswordField newPasswordInput = new PasswordField();
         newPasswordInput.setPromptText("Password"); // grayed out text prompting users to enter their first name
         GridPane.setConstraints(newPasswordInput,1,2);
 
@@ -195,7 +196,7 @@ public class EmployeeFunctions {
         Button updatePassword = new Button("Update Password");
         updatePassword.setOnAction(e -> {
             try {
-                Controller.changePassword(stage, Objects.requireNonNull(Connector.getConnection()),usernameInput.getText(),oldPasswordInput.getText(),newPasswordInput.getText());
+                Controller.changePassword(stage, Objects.requireNonNull(Connector.getConnection()),usernameInput.getText(),Encryptor.encryptString(oldPasswordInput.getText()),Encryptor.encryptString(newPasswordInput.getText()));
             } catch (Exception ex) {
                 ex.printStackTrace();
             }

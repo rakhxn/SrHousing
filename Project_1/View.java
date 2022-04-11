@@ -7,8 +7,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.scene.input.KeyEvent;
 
 import java.util.Objects;
 
@@ -40,11 +42,30 @@ public class View {
         passInput.setPromptText("password");
         GridPane.setConstraints(passInput,1,1);
 
+        nameInput.setOnKeyPressed(e -> {
+            if(e.getCode() == KeyCode.ENTER){
+                try {
+                    Controller.userExists(stage,Objects.requireNonNull(Connector.getConnection()),nameInput.getText(),Encryptor.encryptString(passInput.getText()));
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+        passInput.setOnKeyPressed(e -> {
+            if(e.getCode() == KeyCode.ENTER){
+                try {
+                    Controller.userExists(stage,Objects.requireNonNull(Connector.getConnection()),nameInput.getText(),Encryptor.encryptString(passInput.getText()));
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+
         //Login button
         Button login = new Button("Log In");
         login.setOnAction(e -> {
                 try {
-                    Controller.userExists(stage,Objects.requireNonNull(Connector.getConnection()),nameInput.getText(),passInput.getText());
+                    Controller.userExists(stage,Objects.requireNonNull(Connector.getConnection()),nameInput.getText(),Encryptor.encryptString(passInput.getText()));
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
