@@ -12,6 +12,8 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.scene.input.KeyEvent;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Objects;
 
 public class View {
@@ -42,10 +44,12 @@ public class View {
         passInput.setPromptText("password");
         GridPane.setConstraints(passInput,1,1);
 
+
         nameInput.setOnKeyPressed(e -> {
             if(e.getCode() == KeyCode.ENTER){
                 try {
                     Controller.userExists(stage,Objects.requireNonNull(Connector.getConnection()),nameInput.getText(),Encryptor.encryptString(passInput.getText()));
+
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -55,6 +59,7 @@ public class View {
             if(e.getCode() == KeyCode.ENTER){
                 try {
                     Controller.userExists(stage,Objects.requireNonNull(Connector.getConnection()),nameInput.getText(),Encryptor.encryptString(passInput.getText()));
+
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -65,7 +70,8 @@ public class View {
         Button login = new Button("Log In");
         login.setOnAction(e -> {
                 try {
-                    Controller.userExists(stage,Objects.requireNonNull(Connector.getConnection()),nameInput.getText(),Encryptor.encryptString(passInput.getText()));
+                   Controller.userExists(stage,Objects.requireNonNull(Connector.getConnection()),nameInput.getText(),Encryptor.encryptString(passInput.getText()));
+
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -83,12 +89,13 @@ public class View {
 
     }
 
-    public static void displayMain(Stage stage){
+    public static void displayMain(Stage stage) throws Exception {
+        System.out.println(Controller.getActiveUser(Objects.requireNonNull(Connector.getConnection())));
         stage.setTitle("SR. Housing");
 
         GridPane grid = new GridPane();
         grid.setPadding(new Insets(10,10,10,10));
-        grid.setVgap(5);
+        grid.setVgap(8);
         grid.setHgap(10);
 
         //Login button

@@ -62,7 +62,11 @@ public class Requests {
 
         Button mainMenu = new Button("Main Menu");
         mainMenu.setOnAction(e ->{
-            View.displayMain(stage);
+            try {
+                View.displayMain(stage);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         });
         GridPane.setConstraints(mainMenu,0,6);
 

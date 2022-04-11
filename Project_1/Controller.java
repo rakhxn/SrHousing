@@ -5,6 +5,8 @@ import Project_1.Views.Employee;
 import javafx.stage.Stage;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class Controller {
 
@@ -34,13 +36,39 @@ public class Controller {
         }
         else if(userResult.equals(name.toLowerCase()) && passResult.equals(password)){
             exists = true;
-            View.displayMain(stage);
         }
         else if(userResult.equals(name.toLowerCase()) && !passResult.equals(password)){
             ConfirmedButton.display("Error!", "Incorrect Password, try again!");
         }
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        Calendar c = Calendar.getInstance();
+        String startDate = dateFormat.format(c.getTime());
+
+        if(exists){
+            try{
+                PreparedStatement posted = conn.prepareStatement("INSERT INTO login_logs (firstname,date) VALUES ('" + name + "','" + startDate + "')");
+                posted.executeUpdate();
+                View.displayMain(stage);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
         return exists;
     }
+
+    public static String getActiveUser(Connection conn) throws Exception {
+        String userResult = null;
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(
+                "SELECT firstname FROM login_logs ORDER BY id DESC LIMIT 1"
+        );
+        while (rs.next()) {
+            userResult = rs.getString("firstname");
+        }
+        return userResult;
+
+    }
+
 
     // adds employee to the database
     public static void addEmployee(Stage stage, Connection conn, String firstName, String password, String dept) throws Exception {

@@ -85,9 +85,6 @@ public class EmployeeFunctions {
         GridPane.setConstraints(addEmployee,0,4);
         GridPane.setConstraints(addAdmin,1,4);
         GridPane.setConstraints(returnhome,0,5);
-
-
-
         grid.getChildren().addAll(username,usernameInput,password,passInput,dept,deptInput,addEmployee,addAdmin,returnhome);
 
         //casts the window with the scene in it
@@ -128,7 +125,7 @@ public class EmployeeFunctions {
         Button removeEmployee = new Button("Remove Employee");
         removeEmployee.setOnAction(e -> {
             try {
-                Controller.removeEmployee(stage,Connector.getConnection(),usernameInput.getText());
+                Controller.removeEmployee(stage, Objects.requireNonNull(Connector.getConnection()),usernameInput.getText());
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
