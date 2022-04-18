@@ -66,6 +66,7 @@ public class View {
             }
         });
 
+        //test
         //Login button
         Button login = new Button("Log In");
         login.setOnAction(e -> {
